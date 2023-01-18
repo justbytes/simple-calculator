@@ -3,14 +3,14 @@ pragma solidity ^0.8.9;
 
 
 contract Calculator {
-    // For testing purposes result will be set to 10 but when deployed will equal 0 
-    int256 result = 10;
+    // Set to 25 for testing 
+    int256 result = 25;
 
-    function getResults() public view returns (int256) {
+    function equals() public view returns (int256) {
         return result;
     }
 
-    function clearResults() public returns (int256) {
+    function clear() public returns (int256) {
         return result = 0;
     }
 
