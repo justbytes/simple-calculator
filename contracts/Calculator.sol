@@ -10,6 +10,10 @@ contract Calculator {
         return result;
     }
 
+    function clearResults() public returns (int256) {
+        return result = 0;
+    }
+
     function add(int256 _num) public returns (int256) {
         return result = result + _num;
     }
