@@ -1,0 +1,6 @@
+nav {
+  background-color: hsl(167, 51%, 42%);
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+}
