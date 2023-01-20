@@ -1,11 +1,28 @@
 import React, { useState } from "react";
+
 import "../style/Calculator.css";
 
-function Calculator() {
+const CalculatorInterface = ({ provider, account, calculator }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleClick = (event) => {
     setInputValue(inputValue + event.target.textContent);
+  };
+
+  const math = async () => {
+    const signer = await provider.getSigner();
+
+    await calculator.connect(signer).add(inputValue);
+    // const result = await calculator.equals();
+    // console.log(result);
+    console.log(inputValue);
+  };
+
+  const equals = async () => {
+    const signer = await provider.getSigner();
+    const result = await calculator.connect(signer).equals();
+    setInputValue(result);
+    console.log(result);
   };
 
   return (
@@ -47,16 +64,26 @@ function Calculator() {
       <button className="calculator-key" onClick={handleClick}>
         0
       </button>
-      <button className="calculator-key">=</button>
+      <button className="calculator-key" onClick={equals}>
+        =
+      </button>
       <button className="calculator-key" onClick={() => setInputValue("")}>
         CLR
       </button>
-      <button className="calculator-key">+</button>
-      <button className="calculator-key">-</button>
-      <button className="calculator-key">X</button>
-      <button className="calculator-key">/</button>
+      <button className="calculator-key" onClick={math}>
+        +
+      </button>
+      <button className="calculator-key" onClick={handleClick}>
+        -
+      </button>
+      <button className="calculator-key" onClick={handleClick}>
+        *
+      </button>
+      <button className="calculator-key" onClick={handleClick}>
+        /
+      </button>
     </div>
   );
-}
+};
 
-export default Calculator;
+export default CalculatorInterface;

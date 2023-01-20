@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import "./style/App.css";
 
 // Components
-import CalculatorInterface from "./components/Calculator";
+import CalculatorInterface from "./components/CalculatorInterface";
 import Navbar from "./components/Navbar";
 
 // ABI
@@ -31,6 +31,7 @@ function App() {
       provider
     );
     setCalculator(calculator);
+    console.log(calculator);
   };
 
   useEffect(() => {
@@ -40,7 +41,11 @@ function App() {
   return (
     <div>
       <Navbar account={account} setAccount={setAccount} />
-      <CalculatorInterface />
+      <CalculatorInterface
+        provider={provider}
+        account={account}
+        calculator={calculator}
+      />
     </div>
   );
 }

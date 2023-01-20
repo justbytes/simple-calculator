@@ -4,7 +4,7 @@ pragma solidity ^0.8.9;
 
 contract Calculator {
     // Set to 25 for testing 
-    int256 result = 25;
+    int256 public result;
 
     function equals() public view returns (int256) {
         return result;
