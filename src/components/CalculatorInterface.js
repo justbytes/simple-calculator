@@ -9,13 +9,36 @@ const CalculatorInterface = ({ provider, account, calculator }) => {
     setInputValue(inputValue + event.target.textContent);
   };
 
-  const math = async () => {
+  const addition = async () => {
     const signer = await provider.getSigner();
-
-    await calculator.connect(signer).add(inputValue);
-    // const result = await calculator.equals();
-    // console.log(result);
+    const result = await calculator.connect(signer).add(inputValue);
+    setInputValue("");
     console.log(inputValue);
+    console.log(result);
+  };
+
+  const subtraction = async () => {
+    const signer = await provider.getSigner();
+    const result = await calculator.connect(signer).subtract(inputValue);
+    setInputValue("");
+    console.log(inputValue);
+    console.log(result);
+  };
+
+  const multiplication = async () => {
+    const signer = await provider.getSigner();
+    const result = await calculator.connect(signer).multiply(inputValue);
+    setInputValue("");
+    console.log(inputValue);
+    console.log(result);
+  };
+
+  const divison = async () => {
+    const signer = await provider.getSigner();
+    const result = await calculator.connect(signer).divide(inputValue);
+    setInputValue("");
+    console.log(inputValue);
+    console.log(result);
   };
 
   const equals = async () => {
@@ -23,6 +46,13 @@ const CalculatorInterface = ({ provider, account, calculator }) => {
     const result = await calculator.connect(signer).equals();
     setInputValue(result);
     console.log(result);
+  };
+
+  const clear = async () => {
+    const signer = await provider.getSigner();
+    await calculator.connect(signer).clear();
+    setInputValue("");
+    console.log(inputValue);
   };
 
   return (
@@ -64,23 +94,26 @@ const CalculatorInterface = ({ provider, account, calculator }) => {
       <button className="calculator-key" onClick={handleClick}>
         0
       </button>
-      <button className="calculator-key" onClick={equals}>
-        =
-      </button>
       <button className="calculator-key" onClick={() => setInputValue("")}>
         CLR
       </button>
-      <button className="calculator-key" onClick={math}>
+      <button className="calculator-key" onClick={clear}>
+        RST
+      </button>
+      <button className="calculator-key" onClick={addition}>
         +
       </button>
-      <button className="calculator-key" onClick={handleClick}>
+      <button className="calculator-key" onClick={subtraction}>
         -
       </button>
-      <button className="calculator-key" onClick={handleClick}>
+      <button className="calculator-key" onClick={multiplication}>
         *
       </button>
-      <button className="calculator-key" onClick={handleClick}>
+      <button className="calculator-key" onClick={divison}>
         /
+      </button>
+      <button className="calculator-equals-key" onClick={equals}>
+        =
       </button>
     </div>
   );
