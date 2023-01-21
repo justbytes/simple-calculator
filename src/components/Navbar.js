@@ -19,7 +19,7 @@ const Navbar = ({ account, setAccount }) => {
       {/* Conditional that shows connect wallet if wallet is not connected */}
       {account ? (
         <button type="button" className="connect-wallet-btn">
-          {account}
+          Connected
         </button>
       ) : (
         <button
