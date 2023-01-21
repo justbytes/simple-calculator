@@ -25,3 +25,5 @@ Deploy Smart contract:
 ```md
 npx hardhat run ./scripts/deploy.js --network localhost
 ```
+
+![projectPicture](./assets/images/calcDapp.png)
