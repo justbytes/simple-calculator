@@ -3,27 +3,27 @@ import React, { useState } from "react";
 import "../style/Calculator.css";
 
 const CalculatorInterface = ({ provider, account, calculator }) => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(0);
 
   const handleClick = (event) => {
     setInputValue(inputValue + event.target.textContent);
   };
 
-  const addition = async () => {
+  async function addition() {
     const signer = await provider.getSigner();
     const result = await calculator.connect(signer).add(inputValue);
     setInputValue("");
     console.log(inputValue);
     console.log(result);
-  };
+  }
 
-  const subtraction = async () => {
+  async function subtraction() {
     const signer = await provider.getSigner();
     const result = await calculator.connect(signer).subtract(inputValue);
     setInputValue("");
     console.log(inputValue);
     console.log(result);
-  };
+  }
 
   const multiplication = async () => {
     const signer = await provider.getSigner();
