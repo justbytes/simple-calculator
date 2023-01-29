@@ -17,9 +17,10 @@ const Navbar = ({ account, setAccount }) => {
         <h1>Simple Calculator</h1>
       </div>
       {/* Conditional that shows connect wallet if wallet is not connected */}
+
       {account ? (
         <button type="button" className="connect-wallet-btn">
-          Connected
+          {account.slice(0, 6) + "..." + account.slice(38, 42)}
         </button>
       ) : (
         <button
@@ -27,7 +28,7 @@ const Navbar = ({ account, setAccount }) => {
           className="connect-wallet-btn"
           onClick={connectWallet}
         >
-          Connect Wallet
+          Connect
         </button>
       )}
     </nav>

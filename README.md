@@ -20,7 +20,7 @@ Launch hardhat server
 npx hardhat node
 ```
 
-Deploy Smart contract:
+Deploy Smart Contract:
 
 ```md
 npx hardhat run ./scripts/deploy.js --network localhost
