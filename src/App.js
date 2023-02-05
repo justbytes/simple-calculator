@@ -7,10 +7,11 @@ import CalculatorInterface from "./components/CalculatorInterface";
 import Navbar from "./components/Navbar";
 
 // ABI
-import Calculator from "./abis/Calculator.json";
+import CALCULATOR_CONTRACT_ABI from "./abis/Calculator.json";
 
 // Config
-import config from "./config.json";
+const CALCULATOR_CONTRACT_ADDRESS =
+  "0xa79782b47d08730744d188578cdf0A5D0d62C657";
 
 function App() {
   const [provider, setProvider] = useState();
@@ -26,8 +27,8 @@ function App() {
 
     // Create JavaScript version of smart contract
     const calculator = new ethers.Contract(
-      config[network.chainId].calculator.address,
-      Calculator,
+      CALCULATOR_CONTRACT_ADDRESS,
+      CALCULATOR_CONTRACT_ABI,
       provider
     );
     setCalculator(calculator);
