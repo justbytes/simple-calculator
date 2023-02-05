@@ -6,7 +6,7 @@ A calculator DApp that was built with React.js, Hardhat, Solidity. The front-end
 
 Contract address: 0xa79782b47d08730744d188578cdf0A5D0d62C657
 
-I have also deployed this DApp to the zksync l2 testnet. Check it out [here](https://cool-math-7566.on.fleek.co/) to compare transaction speeds.
+I have also deployed this DApp to the zksync l2 testnet. Check it out [here](https://cool-math-7566.on.fleek.co/) to compare transaction speeds. [Repo](https://github.com/justbytes/simple-calculator-v2) for l2 DApp
 
 ## Link to DApp
 
